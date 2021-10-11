@@ -1,1 +1,1 @@
-# pjwstk
+# pjwstk - zadania i ćwiczenia
