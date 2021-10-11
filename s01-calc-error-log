@@ -1,0 +1,5 @@
+student@student-VirtualBox:~/intro-to-programming$ build/s01-dev.bin 1234566565789 213584865485364
+terminate called after throwing an instance of 'std::out_of_range'
+  what():  stoi
+Aborted (core dumped)
+
