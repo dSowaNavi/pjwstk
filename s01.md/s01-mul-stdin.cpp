@@ -24,7 +24,7 @@ auto main() -> int
 	int a = askInput("liczbna a");	
 	int b = askInput("liczbna b");
 
-	cout << a + b << '\n';	
+	cout << a * b << '\n';	
 
 	return 0;
 
