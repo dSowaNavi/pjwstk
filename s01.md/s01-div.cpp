@@ -4,28 +4,19 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
-using namespace std;
 
-auto askInput(string prompt) -> int
+auto main(int argc, char* argv[]) -> int
 {
-	string temp;
-	char const* input;
-	
-	cout << prompt << " int: ";
-	getline(cin, temp);	
-	input = temp.c_str();
-	auto result = strtol(input, NULL, 10);
-	return result;
-}
+	if (argc < 3 || std::stoi(argv[2]) == 0) 
+	{
+		std::cout << "Prosze podać liczby poprawne do dzielenia \n";
+		return 1;
+	}
 
-auto main() -> int
-{
-	int a = askInput("liczbna a");	
-	int b = askInput("liczbna b");
-
-	cout << a + b << '\n';	
-
+	auto const a = std::stof(argv[1]);
+	auto const b = std::stof(argv[2]);
+	std::cout << a / b;
+	std::cout << "\n";
 	return 0;
 
 }
