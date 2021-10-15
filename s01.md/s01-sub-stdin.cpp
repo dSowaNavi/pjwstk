@@ -4,7 +4,8 @@
 
 #include <iostream>
 #include <string>
-
+#include <cstdlib>
+using namespace std;
 
 auto askInput(string prompt) -> int
 {
@@ -20,10 +21,10 @@ auto askInput(string prompt) -> int
 
 auto main() -> int
 {
-	int a = prompt("liczbna a");	
-	int b = prompt("liczbna b");
+	int a = askInput("liczbna a");	
+	int b = askInput("liczbna b");
 
-	std::cout << a - b << '\n';	
+	cout << a - b << '\n';	
 
 	return 0;
 
