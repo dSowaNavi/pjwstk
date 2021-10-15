@@ -21,8 +21,8 @@ auto askInput(string prompt) -> int
 
 auto main() -> int
 {
-	int a = prompt("liczbna a");	
-	int b = prompt("liczbna b");
+	int a = askInput("liczbna a");	
+	int b = askInput("liczbna b");
 
 	cout << a + b << '\n';	
 
