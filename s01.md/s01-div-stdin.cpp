@@ -7,7 +7,6 @@
 #include <cstdlib>
 using namespace std;
 
-
 auto askInput(string prompt) -> int
 {
 	string temp;
@@ -25,13 +24,7 @@ auto main() -> int
 	int a = askInput("liczbna a");	
 	int b = askInput("liczbna b");
 
-	if (b == 0) 
-	{ 
-		cout<< "Nie dziel przez 0" << '\n';
-		return 1;
-	}
-	
-	cout << a / b << '\n';	
+	cout << a + b << '\n';	
 
 	return 0;
 
