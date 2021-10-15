@@ -4,24 +4,27 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+using namespace std;
 
-
-auto prompt(std::string prompt) -> int
+auto askInput(string prompt) -> int
 {
-	std::string input{};
-
-	std::cout << prompt << " int: ";
-	std::cin >> input;
-	int result = std::stoi(input);
+	string temp;
+	char const* input;
+	
+	cout << prompt << " int: ";
+	getline(cin, temp);	
+	input = temp.c_str();
+	auto result = strtol(input, NULL, 10);
 	return result;
 }
 
 auto main() -> int
 {
-	int a = prompt("liczbna a");	
-	int b = prompt("liczbna b");
+	int a = askInput("liczbna a");	
+	int b = askInput("liczbna b");
 
-	std::cout << a * b << '\n';	
+	cout << a + b << '\n';	
 
 	return 0;
 
