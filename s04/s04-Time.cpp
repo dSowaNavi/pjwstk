@@ -186,8 +186,8 @@ int main()
 	czas time_to_midnight(czas a)
 	{
 		czas temp;
-
-		return time_alg(a, temp, '-');
+		czas *a = this;
+		return time_alg(*a, temp, '-');
 	}
 
         void midnight_test()
@@ -229,7 +229,7 @@ cout << "Czy a != b?: " << manager.time_alg(a,b,"!=") << "\n";
 cout << "Czy a > b?: " << manager.time_alg(a,b,">") << "\n";
 cout << "Czy a < b?: " << manager.time_alg(a,b,"<") << "\n";
 //zadanie sekundy do polnocy
-output = a.time_to_midnight(a);
+output = a.time_to_midnight();
 cout << "Czas do polnocy dla a: " << output.to_string() << "\n";
 
 return 0;
