@@ -19,7 +19,7 @@ int main()
             return "0";
         }
             
-        virtual  string to_string() = 0;
+        virtual  string to_string() const =  0;
         
         string imie;
     };
@@ -27,7 +27,7 @@ int main()
     class Mrs : public Person 
     {
         public:
-        string to_string() 
+        string to_string() const 
         {
             return "Mrs " + imie;
         }
@@ -35,7 +35,7 @@ int main()
         
     class Greet 
     {
-        virtual void greet(Person& obiekt) = 0;
+        virtual void greet(Person const& obiekt) const = 0;
     };
     
     class Hello : public Greet 
@@ -45,7 +45,7 @@ int main()
         {
             cout << "Hello "  << obiekt->to_string();
         }*/
-        void greet(Person const& obiekt)
+        void greet(Person const& obiekt) const
         {
             cout << "Hello "  << obiekt.to_string();
         }
