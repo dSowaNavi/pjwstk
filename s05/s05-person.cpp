@@ -35,21 +35,25 @@ int main()
         
     class Greet 
     {
-        virtual void greet(Person* obiekt) = 0;
+        virtual void greet(Person& obiekt) = 0;
     };
     
     class Hello : public Greet 
     {
         public:
-        void greet(Person* obiekt)
+        /*void greet(Person* obiekt)
         {
             cout << "Hello "  << obiekt->to_string();
+        }*/
+        void greet(Person const& obiekt)
+        {
+            cout << "Hello "  << obiekt.to_string();
         }
     };
     
     Mrs osoba;
     Hello wit;
-    wit.greet(&osoba);
+    wit.greet(osoba);
     
     
     return 0;
