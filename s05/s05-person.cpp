@@ -2,6 +2,8 @@
 #include <string.h>
 using namespace std;
 
+
+
 int main()
 {
     class Person 
@@ -12,44 +14,43 @@ int main()
             cin >> imie;
         }
         
-        virtual void to_string() = 0;
+        string who_is_it(Person const& obiekt) 
+        {
+            return "0";
+        }
+            
+        virtual  string to_string() = 0;
         
-        protected:
         string imie;
     };
-
-    class Mrs : Person 
+    
+    class Mrs : public Person 
     {
         public:
-        void to_string() 
+        string to_string() 
         {
-            cout << "Hello Mrs " << imie;
+            return "Mrs " + imie;
         }
+    };   
+        
+    class Greet 
+    {
+        virtual void greet(Person* obiekt) = 0;
     };
-       class Mr : Person 
+    
+    class Hello : public Greet 
     {
         public:
-        void to_string() 
+        void greet(Person* obiekt)
         {
-            cout << "Hello Mr " << imie;
+            cout << "Hello "  << obiekt->to_string();
         }
     };
-       class King : Person 
-    {
-        public:
-        void to_string() 
-        {
-            cout << "Hello King " << imie;
-        }
-    };
-       class Queen : Person 
-    {
-        public:
-        void to_string() 
-        {
-            cout << "Hello Queen " << imie;
-        }
-    };
-
+    
+    Mrs osoba;
+    Hello wit;
+    wit.greet(&osoba);
+    
+    
     return 0;
 }
