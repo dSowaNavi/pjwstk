@@ -1,14 +1,4 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <iostream>
-
-using namespace std;
 #include <typeinfo>
 #include <string.h>
 
@@ -19,11 +9,11 @@ int main()
         public:
         Creature() 
         {
-            cin >> nazwa;
-            cin >> hp;
+            std::cin >> nazwa;
+            std::cin >> hp;
         }
         
-        string nazwa;
+        std::string nazwa;
         int hp;
     };
 
@@ -85,21 +75,21 @@ int main()
     Health_potion pot;
     Creature zwierz;
     
-    cout << zwierz.nazwa << zwierz.hp;
+    std::cout << zwierz.nazwa << zwierz.hp;
     pot.use_on(zwierz);
-    cout << zwierz.nazwa << zwierz.hp;
-    cout << "\n";
-    cout << zwierz.nazwa << zwierz.hp;
+    std::cout << zwierz.nazwa << zwierz.hp;
+    std::cout << "\n";
+    std::cout << zwierz.nazwa << zwierz.hp;
     pot.use_on(zwierz);
-    cout << zwierz.nazwa << zwierz.hp;
-    cout << "\n";
-    cout << zwierz.nazwa << zwierz.hp;
+    std::cout << zwierz.nazwa << zwierz.hp;
+    std::cout << "\n";
+    std::cout << zwierz.nazwa << zwierz.hp;
     pot.use_on(zwierz);
-    cout << zwierz.nazwa << zwierz.hp;
-    cout << "\n";
-    cout << zwierz.nazwa << zwierz.hp;
+    std::cout << zwierz.nazwa << zwierz.hp;
+   std::cout << "\n";
+    std::cout << zwierz.nazwa << zwierz.hp;
     pot.use_on(zwierz);
-    cout << zwierz.nazwa << zwierz.hp;
+    std::cout << zwierz.nazwa << zwierz.hp;
     
     return 0;
 }
