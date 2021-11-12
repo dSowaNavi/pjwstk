@@ -1,30 +1,12 @@
 #include <iostream>
 #include <typeinfo>
 #include <string.h>
+#include "Item.h"
 
 int main()
 {
-    class Creature 
-    {
-        public:
-        Creature() 
-        {
-            std::cin >> nazwa;
-            std::cin >> hp;
-        }
-        
-        std::string nazwa;
-        int hp;
-    };
-
-    class Item
-    {
-        public:
-        virtual void use_on(Creature& zwierz) = 0;  
-        virtual int strength() = 0;  
-    };
-    
-    class Weapon : Item 
+   
+ class Weapon : Item 
     {
         public:
         void use_on(Creature& zwierz) 
@@ -36,12 +18,13 @@ int main()
     class Sword : Weapon
     {
         public:
-        int strength() {return 5; }
-        
-        void use_on(Creature& zwierz) 
+        const int strength() {return 5; } 
+	void use_on(Creature& zwierz) 
         {
             zwierz.hp -= strength();
         };
+           
+        
     };
     
     class Potion : Item
@@ -56,7 +39,7 @@ int main()
     class Health_potion : Potion
     {
         public:
-        int strength()
+        const int strength()
         {
             if (uses > 0)
             return 10;
@@ -75,21 +58,23 @@ int main()
     Health_potion pot;
     Creature zwierz;
     
-    std::cout << zwierz.nazwa << zwierz.hp;
-    pot.use_on(zwierz);
-    std::cout << zwierz.nazwa << zwierz.hp;
-    std::cout << "\n";
-    std::cout << zwierz.nazwa << zwierz.hp;
-    pot.use_on(zwierz);
-    std::cout << zwierz.nazwa << zwierz.hp;
-    std::cout << "\n";
-    std::cout << zwierz.nazwa << zwierz.hp;
-    pot.use_on(zwierz);
-    std::cout << zwierz.nazwa << zwierz.hp;
-   std::cout << "\n";
-    std::cout << zwierz.nazwa << zwierz.hp;
-    pot.use_on(zwierz);
-    std::cout << zwierz.nazwa << zwierz.hp;
+    std::cout << zwierz.nazwa << " hp: "<< zwierz.hp << "\n";
+	pot.use_on(zwierz);
+	std::cout << "potion 1: " << zwierz.hp << "\n";
+	pot.use_on(zwierz);
+	std::cout << "potion 2: " << zwierz.hp << "\n";
+	pot.use_on(zwierz);
+	std::cout << "potion 3: " << zwierz.hp << "\n";
+
+	std::cout << "teraz miecz, hp: " << zwierz.hp << "\n";
+	swr.use_on(zwierz);
+	std::cout << "*slash* " << zwierz.hp << "\n";
+	swr.use_on(zwierz);
+	std::cout << "*slash* " << zwierz.hp << "\n";
+	swr.use_on(zwierz);
+	std::cout << "*slash* " << zwierz.hp << "\n";
+
+    
     
     return 0;
 }
