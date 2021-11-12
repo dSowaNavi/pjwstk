@@ -4,18 +4,16 @@
 #include <cstdlib>
 #include <math.h>   
 #include <valarray>
-using namespace std;
 
-int main() 
+
+auto main()  -> int
 {
     struct czas 
     {
       czas() 
         {
-            godzina = 0;
-            minuta = 0;
-            sekunda = 0;
-		poraDnia = Time_Of_Day::night;
+            this->build(0,0,0);
+		    poraDnia = Time_Of_Day::night;
         }
 	enum class Time_Of_Day
 	{
@@ -31,12 +29,12 @@ int main()
             update();		
         }
         
-        string to_string()
+        auto to_string() -> std::string
         {
 		return std::to_string(godzina) + ":" + std::to_string(minuta) + ":" + std::to_string(sekunda);
         }
 
-	  string to_string(Time_Of_Day)
+	  auto to_string(Time_Of_Day) -> std::string
 	{
 		switch (poraDnia)		
 		{
@@ -123,7 +121,7 @@ int main()
 
 	czas time_alg(czas first, czas second,char sign)
         {           
-            valarray<int> a{first.godzina, first.minuta, first.sekunda},b{second.godzina, second.minuta, second.sekunda}, c;
+            std::valarray<int> a{first.godzina, first.minuta, first.sekunda},b{second.godzina, second.minuta, second.sekunda}, c;
             czas answer;
             switch(sign) 
             {
@@ -144,7 +142,7 @@ int main()
             return answer;
         }        
 	
-	bool time_alg(czas first, czas second,string sign)
+	bool time_alg(czas first, czas second,std::string sign)
 	{
 		int a = first.count_seconds();
 		int b = second.count_seconds();
@@ -183,7 +181,7 @@ int main()
 		return false;
         }
 
-	czas time_to_midnight(czas a)
+	czas time_to_midnight()
 	{
 		czas temp;
 		czas *a = this;
@@ -203,34 +201,34 @@ int main()
         int godzina;
         int minuta;
         int sekunda;	
-	  Time_Of_Day poraDnia;
+	    Time_Of_Day poraDnia;
     };   
     
 czas manager;
 czas a;
 czas b;
+czas output;
 a.build(12,0,0);
 b.build(0,0,1);
     
-cout << "godzina a: " << a.to_string() << "\n";
-cout << "godzina b: " << b.to_string() << "\n";
+std::cout << "godzina a: " << a.to_string() << "\n";
+std::cout << "godzina b: " << b.to_string() << "\n";
 //zadanie czas
 manager.midnight_test();
 //zadanie time of day
-cout << "Pora dnia: " << a.to_string(a.key) << "\n";
+std::cout << "Pora dnia: " << a.to_string(a.key) << "\n";
 //zadanie arytmetyka
-czas output;
 output = manager.time_alg(a,b,'+');
-cout << "suma: " << output.to_string() << "\n";
+std::cout << "suma: " << output.to_string() << "\n";
 output = manager.time_alg(a,b,'-');
-cout << "róznica: " << output.to_string() << "\n";
-cout << "Czy a == b?: " << manager.time_alg(a,b,"==") << "\n";
-cout << "Czy a != b?: " << manager.time_alg(a,b,"!=") << "\n";
-cout << "Czy a > b?: " << manager.time_alg(a,b,">") << "\n";
-cout << "Czy a < b?: " << manager.time_alg(a,b,"<") << "\n";
+std::cout << "róznica: " << output.to_string() << "\n";
+std::cout << "Czy a == b?: " << manager.time_alg(a,b,"==") << "\n";
+std::cout << "Czy a != b?: " << manager.time_alg(a,b,"!=") << "\n";
+std::cout << "Czy a > b?: " << manager.time_alg(a,b,">") << "\n";
+std::cout << "Czy a < b?: " << manager.time_alg(a,b,"<") << "\n";
 //zadanie sekundy do polnocy
 output = a.time_to_midnight();
-cout << "Czas do polnocy dla a: " << output.to_string() << "\n";
+std::cout << "Czas do polnocy dla a: " << output.to_string() << "\n";
 
 return 0;
 }
