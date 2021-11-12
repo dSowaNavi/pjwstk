@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-using namespace std;
 
-int main() 
+
+auto main() -> int
 {
     
     struct STUDENT
@@ -16,21 +16,20 @@ int main()
             srednia = "0";
         }
         
-        string to_string()
+        auto to_string() -> std::string
         {
-            //string yea =  format("Imie studenta: {}, id: {}. Semestr: {}. srednia ocen: {}.", imie, id, semestr, srednia);
             return  "Imie i id studenta : " + imie + " "+ id + ". Semestr i średnia ocen: " + semestr + " " + srednia;
         }
         
         private:
-        string imie;
-        string id;
-        string semestr;
-        string srednia;
+        std::string imie;
+        std::string id;
+        std::string semestr;
+        std::string srednia;
         
     };
     STUDENT ja;
-    cout << ja.to_string();
+    std::cout << ja.to_string();
     
     return 0;
 }
