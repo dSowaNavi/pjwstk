@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-using namespace std;
 
-int main(int argc, char* argv[])
+
+auto main(int argc, char* argv[]) -> int
 {
 
 	if(argc < 2)
 	{
-		cout << "Proszę podać argument z cyfrą i spróbować ponownie.\n";
+		std::cout << "Proszę podać argument z cyfrą i spróbować ponownie.\n";
 		return 1;
 
 	}	
@@ -17,16 +17,16 @@ int main(int argc, char* argv[])
 	
 	if (number == 0) 
 	{
-		cout << "koniec.\n";
+		std::cout << "koniec.\n";
 		return 0;
 	}	
 
 	for (int i = number; i >= 0; i--)
 	{
-		cout << i << "...\n";
+		std::cout << i << "...\n";
 	}	
 
-	cout << "koniec.\n";
+	std::cout << "koniec.\n";
 
 
 	return 0;
