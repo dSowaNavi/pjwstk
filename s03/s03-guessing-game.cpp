@@ -1,19 +1,18 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 int validate() 
 {
-	string temp;
+	std::string temp;
 	char const* input;
 
-	if (!getline(cin, temp)) {return -1;}
+	if (!std::getline(std::cin, temp)) {return -1;}
 	input = temp.c_str();
 	
 	while(strtol(input, NULL, 10) == 0)
 	{
-		cout << "Proszę podac poprawną liczbę od 1 do 100:\n";	
-		if (!getline(cin, temp)) {return -1;}
+		std::cout << "Proszę podac poprawną liczbę od 1 do 100:\n";	
+		if (!std::getline(std::cin, temp)) {return -1;}
 		input = temp.c_str();
 	}
 	
@@ -26,19 +25,19 @@ int main()
 	int random = rand() % 100 + 1;
 	int answer;
 
-	cout << random << "\n";
-	cout << "Zgadnij liczbe od 1 do 100:\n";
+	std::cout << random << "\n";
+	std::cout << "Zgadnij liczbe od 1 do 100:\n";
 	answer = validate();	
 	
 	while (answer != random)
 	{	
-		cout << "Spróbuj jeszcze raz: \n";
+		std::cout << "Spróbuj jeszcze raz: \n";
 		answer = validate();
 
-		if (answer > random) { cout << "Za dużo!\n"; }
-		else if (answer < random) {cout << "Za mało!\n";}
+		if (answer > random) { std::cout << "Za dużo!\n"; }
+		else if (answer < random) { std::cout << "Za mało!\n";}
 	}
 
-	cout <<"Bravo!\n";
+	std::cout <<"Bravo!\n";
 	return 0;
 }
