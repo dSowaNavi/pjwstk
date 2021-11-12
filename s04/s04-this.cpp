@@ -2,13 +2,11 @@
 #include <string>
 
 
-using namespace std;
-
 int main() 
 {
 	struct point 
 {
-	void printout() {cout << temp << "\n";}
+	void printout() {std::cout << temp << "\n";}
 
 point* temp = this;
 
@@ -17,7 +15,7 @@ point* temp = this;
 point manager;
 	
 manager.printout();
-cout << &manager << "\n";
+std::cout << &manager << "\n";
 
 return 0;
 }
