@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 void large(int c, char** words, int pos, int count, char ending)
 {
@@ -8,7 +7,7 @@ void large(int c, char** words, int pos, int count, char ending)
 
 	do 
 	{		
-		cout << words[abs(pos)] << ending;
+		std::cout << words[abs(pos)] << ending;
 		pos ++;
 	} while (abs(pos) > count && pos < c);
 }
@@ -44,7 +43,7 @@ auto main(int argc, char* argv[]) -> int
 					end = '\n';
 					break;
 				default:
-					cout << "Nie poprawny argument " << argv[i] << '\n';					
+					std::cout << "Nie poprawny argument " << argv[i] << '\n';					
 			}
 		}
 
