@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() 
 {
 
@@ -10,12 +8,12 @@ int main()
 	{
 		ctor_dtor()
 		{
-		cin >> input;
+		std::cin >> input;
 		}
 
-	string input;
+	std::string input;
 
-~ctor_dtor() { cout << "DESTRUCTION! " << input << "\n";}
+~ctor_dtor() { std::cout << "DESTRUCTION! " << input << "\n";}
 	};
 
 ctor_dtor temp;
