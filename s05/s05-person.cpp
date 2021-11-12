@@ -1,60 +1,84 @@
 #include <iostream>
 #include <string.h>
-using namespace std;
-
-
+#include "Person.h"
 
 int main()
-{
-    class Person 
-    {
-        public:
-        Person()
-        {
-            cin >> imie;
-        }
-        
-        string who_is_it(Person const& obiekt) 
-        {
-            return "0";
-        }
-            
-        virtual  string to_string() const =  0;
-        
-        string imie;
-    };
-    
+{        
     class Mrs : public Person 
     {
         public:
-        string to_string() const 
+        std::string to_string() const 
         {
-            return "Mrs " + imie;
+            return "Mrs " + imie + " " + nazwisko;
         }
-    };   
-        
-    class Greet 
+    };  
+
+    class Mr : public Person 
     {
-        virtual void greet(Person const& obiekt) const = 0;
-    };
-    
+        public:
+        std::string to_string() const 
+        {
+            return "Mr " + imie + " " + nazwisko;
+        }
+    };  
+
+    class Queen : public Person 
+    {
+        public:
+        std::string to_string() const 
+        {
+            return "Queen " + imie + " " + nazwisko;
+        }
+    };  
+
+    class King : public Person 
+    {
+        public:
+        std::string to_string() const 
+        {
+            return "King " + imie + " " + nazwisko;
+        }
+    };  
+	       
+        
     class Hello : public Greet 
     {
         public:
-        /*void greet(Person* obiekt)
-        {
-            cout << "Hello "  << obiekt->to_string();
-        }*/
+        
         void greet(Person const& obiekt) const
         {
-            cout << "Hello "  << obiekt.to_string();
+            std::cout << "Hello "  << obiekt.to_string() << "\n";
+        }
+	};
+    class Good_evening : public Greet 
+    {
+        public:
+        
+        void greet(Person const& obiekt) const
+        {
+            std::cout << "Good_evening "  << obiekt.to_string() << "\n";
+        }
+	};
+    class Farewell : public Greet 
+    {
+        public:
+        
+        void greet(Person const& obiekt) const
+        {
+            std::cout << "Farewell "  << obiekt.to_string() << "\n";
         }
     };
     
-    Mrs osoba;
+    Mrs pani;
+/*    Mr pan;
+    Queen krolowa;
+    King krol;*/
     Hello wit;
-    wit.greet(osoba);
-    
-    
+    Good_evening even;
+    Farewell bye;    
+	
+    wit.greet(pani);   
+    even.greet(pani);
+    bye.greet(pani);
     return 0;
 }
